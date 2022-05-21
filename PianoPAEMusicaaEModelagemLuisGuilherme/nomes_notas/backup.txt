@@ -1,0 +1,32 @@
+ // Segunda Oitava
+  teclasPiano[0] = new TeclaPiano(22, 424, 53, 534, 48, "C", "2c.wav", '1');
+  teclasPiano[1] = new TeclaPiano(65, 290, 95, 390, 49, "C# Df", "2c#.wav", '2');
+  teclasPiano[2] = new TeclaPiano(76, 429, 107, 538, 50, "D", "2d.wav", '3');
+  teclasPiano[3] = new TeclaPiano(124, 321, 156, 404, 51, "D# Ef+", "2d#.wav", '4');
+  teclasPiano[4] = new TeclaPiano(129, 426, 163,534, 52, "E", "2e.wav", '5');
+  teclasPiano[5] = new TeclaPiano(179, 423, 215, 535, 53, "F", "2f.wav", '6');
+  teclasPiano[6] = new TeclaPiano(212, 312, 242, 392, 54, "F# Gf", "2f#.wav", '7');  
+  teclasPiano[7] = new TeclaPiano(232,421, 268, 533, 55, "G", "2g.wav", '8');
+  teclasPiano[8] = new TeclaPiano(274, 319, 299, 410, 56, "G# Af", "2g#.wav", '9');
+  teclasPiano[9] = new TeclaPiano(281, 425, 326, 533, 57, "A", "2a.wav", '0');
+  teclasPiano[10] = new TeclaPiano(330, 315, 356, 400, 58, "A# Bf", "2a#.wav", 'p');
+  teclasPiano[11] = new TeclaPiano(336, 423, 381, 537, 59, "B", "2b.wav", 'o');
+  // Terceira Oitava
+  teclasPiano[12] = new TeclaPiano(390, 422,430, 539, 60, "C", "3c.wav", 'i');
+  teclasPiano[13] = new TeclaPiano(420, 316, 449, 403, 61, "C# Df", "3c#.wav", 'u');
+  teclasPiano[14] = new TeclaPiano(443, 420, 486, 539, 62, "D", "3d.wav", 'y');
+  teclasPiano[15] = new TeclaPiano(484, 329,512, 396, 63, "D# Ef", "3d#.wav", 't');
+  teclasPiano[16] = new TeclaPiano(493, 421, 541,537, 64, "E", "3e.wav", 'r');
+  teclasPiano[17] = new TeclaPiano(543, 419, 592, 536, 65, "F", "3f.wav", 'e');
+  teclasPiano[18] = new TeclaPiano(574, 292, 602, 404, 66, "F# Gf+", "3f#.wav", 'w');
+  teclasPiano[19] = new TeclaPiano(596, 423, 649, 534, 67, "G", "3g.wav", 'q');
+  teclasPiano[20] = new TeclaPiano(634, 318, 661, 398, 68, "G# Af", "3g#.wav", 'a');
+  teclasPiano[21] = new TeclaPiano(654, 418, 704, 531, 69, "A", "3a.wav", 's');
+  teclasPiano[22] = new TeclaPiano(693, 305, 723, 395, 70, "A# Bf", "3a#.wav", 'd');
+  teclasPiano[23] = new TeclaPiano(705, 422, 761, 534, 71, "B", "3b.wav", 'f');
+  // Quarta Oitava
+  teclasPiano[24] = new TeclaPiano(759, 418, 815, 529, 72, "C", "4c.wav", 'g');
+  teclasPiano[25] = new TeclaPiano(777, 307, 817, 395, 73, "C# Df", "4c#.wav", 'h');
+  teclasPiano[26] = new TeclaPiano(819, 423, 875, 534, 74, "D", "4d.wav", 'i');
+  teclasPiano[27] = new TeclaPiano(839, 289, 881, 395, 75, "D# Ef+", "4d#.wav", 'j');
+  teclasPiano[28] = new TeclaPiano(877, 421, 932, 533, 76, "E", "4e.wav", 'k');
