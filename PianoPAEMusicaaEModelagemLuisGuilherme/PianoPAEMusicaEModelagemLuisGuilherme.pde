@@ -47,7 +47,8 @@ class TeclaPiano {
     rect(0, 500, width, 30);
     
     // Desenha um retângulo semitransparente na nota quando for tocada
-    fill(250,150, 150,90);
+    // fill(250,150, 150,90);
+    fill(150,255,200,90);
     noStroke();
     desenhaRetangulo();
     
