@@ -5,7 +5,7 @@
 
 import ddf.minim.*;
 TeclaPiano[] teclasPiano = new TeclaPiano[29];
-int ctr; // para armazenar o índice mais alto de teclasPiano
+int ctr;       // para armazenar o índice mais alto de teclasPiano
 
 int notaAnt = 0;
 
@@ -16,14 +16,14 @@ Minim minim;
 AudioPlayer musica;
 
 class TeclaPiano {
-  int n_x1; // canto superior esquerdo do retângulo de fronteira da tecla
+  int n_x1;                 // canto superior esquerdo do retângulo de fronteira da tecla
   int n_y1;
-  int n_x2; // Canto inferior direito  retângulo de fronteira da tecla
+  int n_x2;                 // Canto inferior direito  retângulo de fronteira da tecla
   int n_y2;
-  int numNotaMIDI;  //  número de nota MIDI - usado para calcular intervaloos
-  String notaNome;   // Nome da nota, exemplo C,  F#/G& 
-  String arquivoSom;  // nome do arquivo a ser tocado quando a nota for tocada
-  char letra;     // usado para tocar notas no teclado do computador
+  int numNotaMIDI;          //  número de nota MIDI - usado para calcular intervaloos
+  String notaNome;          // Nome da nota, exemplo C,  F#/G& 
+  String arquivoSom;        // nome do arquivo a ser tocado quando a nota for tocada
+  char letra;               // usado para tocar notas no teclado do computador
   
   TeclaPiano(int x1, int y1, int x2, int y2, int note, String nome, String arquivowave, char teclaLetra) {
         n_x1 = x1;
@@ -40,14 +40,13 @@ class TeclaPiano {
    rect(n_x1, n_y1, n_x2 - n_x1, n_y2 - n_y1); 
   }
   
-  void playNote() {
+  void tocaNota() {
     // escurece o nome da nota mostrada anteriormente
     fill(0);
     noStroke();
     rect(0, 500, width, 30);
     
     // Desenha um retângulo semitransparente na nota quando for tocada
-    // fill(250,150, 150,90);
     fill(150,255,200,90);
     noStroke();
     desenhaRetangulo();
@@ -66,7 +65,6 @@ class TeclaPiano {
       notaAnt = numNotaMIDI;
       return; 
     }
-    int intervalo = numNotaMIDI - notaAnt;
     String dispIntervalo = calcIntervalo(notaAnt, numNotaMIDI) + "    " + 
              str(abs(numNotaMIDI - notaAnt)) + " semitons";
     notaAnt = numNotaMIDI;
@@ -74,11 +72,11 @@ class TeclaPiano {
     fill(0);
     noStroke();
     rect(0, 530, width, 30);
-    fill(0,255,255);  // ciano
+    fill(0,255,255);
     text(dispIntervalo, 280, 550);
   }
   
-  boolean inside(int mx, int my) {
+  boolean dentro(int mx, int my) {
     // retorna true se o ponto (mx, my) esta dentro da fronteira do retangulo deste objeto
     if ((mx < n_x1) || (mx > n_x2)) {
       return false;
@@ -91,7 +89,7 @@ class TeclaPiano {
 }
 
 String calcIntervalo(int notaAnt, int essaNota) {
-  boolean invertido = false;   // verdadeiro se a segunda nota for mais baixa que a primeira
+  boolean invertido = false;       // verdadeiro se a segunda nota for mais baixa que a primeira
   int semiTons;
   String intNome = "Desconhecido";
   if (essaNota < notaAnt) {
@@ -100,45 +98,96 @@ String calcIntervalo(int notaAnt, int essaNota) {
   } else {
      semiTons = essaNota - notaAnt;
   } 
-  println("Semitones " + semiTons);
-  if (semiTons == 0) { intNome = "Uníssono"; }
-  if (semiTons == 1) { intNome = "Segunda Menor - m2"; }
-  if (semiTons == 2) { intNome = "Segunda Maior - M2"; }
-  if (semiTons == 3) { intNome = "Terceira Menor- m3"; }
-  if (semiTons == 4) { intNome = "Terceira  Maior - M3"; }
-  if (semiTons == 5) { intNome = "Quarta Perfeita- P4"; }
-  if (semiTons == 6) { intNome = "Quarta Aumentada / Quinta Diminuída - Aug 4/Dim 5"; }
-  if (semiTons == 7) { intNome = "Quinta Perfeita - P5"; }
-  if (semiTons == 8) { intNome = "Sexta Menor - m6"; }
-  if (semiTons == 9) { intNome = "Sexta Maior - M6"; }
-  if (semiTons == 10) { intNome = "Sétima Menor - m7"; }
-  if (semiTons == 11) { intNome = "Sétima Maior- M7"; }
-  if (semiTons == 12) { intNome = "Oitava"; }
-  if (semiTons == 13) { intNome = "Nona MENOR"; }
-  if (semiTons == 14) { intNome = "Nona Maior"; }
-  if (semiTons == 15) { intNome = "Décima Menor"; }
-  if (semiTons == 16) { intNome = "Décima Maior"; }
-  if (semiTons == 17) { intNome = "Décima Primeira Perfeita"; }
-  if (semiTons == 18) { intNome = "Décima Primeira Aumentada - Décima Segunda Diminuída"; }
-  if (semiTons == 19) { intNome = "Décima Segunda Perfeita"; }
-  if (semiTons == 20) { intNome = "Décima Terceira Menor"; }
-  if (semiTons == 21) { intNome = "Décima Terceira Maior"; }
-  if (semiTons == 22) { intNome = "Décima Quarta Menor"; }
-  if (semiTons == 23) { intNome = "Décima Quarta Maior"; }
-              
+  println("Semitons " + semiTons);
+  
+  switch(semiTons){
+    case 0:
+      intNome = "Uníssono";
+      break;
+    case 1:
+      intNome = "Segunda Menor - m2";
+      break;
+    case 2:
+      intNome = "Segunda Maior - M2";
+      break;
+    case 3:
+      intNome = "Terceira Menor- m3";
+      break;
+    case 4:
+      intNome = "Terceira  Maior - M3";
+      break;
+    case 5:
+      intNome = "Quarta Perfeita- P4";
+      break;
+    case 6:
+      intNome = "Quarta Aumentada / Quinta Diminuída - Aug 4/Dim 5";
+      break;
+    case 7:
+      intNome = "Quinta Perfeita - P5";
+      break;
+    case 8:
+      intNome = "Sexta Menor - m6";
+      break;
+    case 9:
+      intNome = "Sexta Maior - M6";
+      break;
+    case 10:
+      intNome = "Sexta Maior - M6";
+      break;
+    case 11:
+      intNome = "Sétima Maior- M7";
+      break;
+    case 12:
+      intNome = "Sétima Maior- M7";
+      break;
+    case 13:
+      intNome = "Nona Menor";
+      break;
+    case 14:
+      intNome = "Nona Maior";
+      break;
+    case 15:
+      intNome = "Décima Menor";
+      break;
+    case 16:
+      intNome = "Décima Maior";
+      break;
+    case 17:
+      intNome = "Décima Primeira Perfeita";
+      break;
+    case 18:
+      intNome = "Décima Primeira Aumentada - Décima Segunda Diminuída";
+      break;
+    case 19:
+     intNome = "Décima Segunda Perfeita";
+      break;
+    case 20:
+      intNome = "Décima Terceira Menor";
+      break;  
+   case 21:
+      intNome = "Décima Terceira Maior";
+      break;
+    case 22:
+      intNome = "Décima Quarta Menor";
+      break;
+    case 23:
+      intNome = "Décima Quarta Maior";
+      break;   
+  }
+  
   if (invertido) {
      return intNome + " (descendente)";
   } else {
     return intNome;
   }
-    
 }
+
 void mousePressed() {
    // Linha a seguir usada para medir coordenadas das teclas do piano para atualizar a funcao setup()
-   println(mouseX + "," + mouseY);
+   // println(mouseX + "," + mouseY);
    for (int i = 0; i <= ctr; i++) {
-   if (teclasPiano[i].inside(mouseX, mouseY) ) {
-     teclasPiano[i].playNote();
+   if (teclasPiano[i].dentro(mouseX, mouseY) ) {
+     teclasPiano[i].tocaNota();
    }
  }
 }
@@ -146,7 +195,7 @@ void mousePressed() {
 void keyPressed() {
    for (int i = 0; i <= ctr; i++) {
    if (teclasPiano[i].letra == key)  {
-     teclasPiano[i].playNote();
+     teclasPiano[i].tocaNota();
      image(teclado, 0, 0); 
    }
  }
@@ -154,10 +203,6 @@ void keyPressed() {
   
 void mouseReleased() {
  image(teclado, 0, 0); 
-}
-
-void draw() {
- // necessária para ativar eventos de mouse ou teclado
 }
 
 void settings(){
@@ -172,7 +217,7 @@ void setup() {
   image(teclado, 0, 0); 
   minim = new Minim(this);
 
- // Segunda Oitava
+  // Segunda Oitava
   teclasPiano[0] = new TeclaPiano(22, 424, 53, 534, 48, "C", "conv1.wav", '1');
   teclasPiano[1] = new TeclaPiano(65, 290, 95, 390, 49, "C# Df", "conv2.wav", '2');
   teclasPiano[2] = new TeclaPiano(76, 429, 107, 538, 50, "D", "conv3.wav", '3');
@@ -201,11 +246,15 @@ void setup() {
   // Quarta Oitava
   teclasPiano[24] = new TeclaPiano(759, 418, 815, 529, 72, "C", "conv25.wav", 'g');
   teclasPiano[25] = new TeclaPiano(777, 307, 817, 395, 73, "C# Df", "conv26.wav", 'h');
-  teclasPiano[26] = new TeclaPiano(819, 423, 875, 534, 74, "D", "conv27.wav", 'i');
-  teclasPiano[27] = new TeclaPiano(839, 289, 881, 395, 75, "D# Ef+", "conv28.wav", 'j');
-  teclasPiano[28] = new TeclaPiano(877, 421, 932, 533, 76, "E", "conv29.wav", 'k');
+  teclasPiano[26] = new TeclaPiano(819, 423, 875, 534, 74, "D", "conv27.wav", 'j');
+  teclasPiano[27] = new TeclaPiano(839, 289, 881, 395, 75, "D# Ef+", "conv28.wav", 'k');
+  teclasPiano[28] = new TeclaPiano(877, 421, 932, 533, 76, "E", "conv29.wav", 'l');
 
   ctr = 28;
   
-  frameRate(6);
+  frameRate(60);
+}
+
+void draw() {
+ // necessária para ativar eventos de mouse ou teclado
 }
