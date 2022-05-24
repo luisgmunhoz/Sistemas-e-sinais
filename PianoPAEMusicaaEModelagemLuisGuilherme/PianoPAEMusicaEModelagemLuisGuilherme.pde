@@ -90,9 +90,9 @@ class TeclaPiano {
 }
 
 String calcIntervalo(int notaAnt, int essaNota) {
-  boolean invertido = false;   // true if second note lower than first note
+  boolean invertido = false;   // verdadeiro se a segunda nota for mais baixa que a primeira
   int semiTons;
-  String intNome = "Unknown";
+  String intNome = "Desconhecido";
   if (essaNota < notaAnt) {
      invertido = true;
      semiTons = notaAnt - essaNota; 
@@ -161,7 +161,7 @@ void draw() {
 
 void settings(){
   teclado = loadImage("teclaspiano.jpeg");
-  size(teclado.width,teclado.height + 300);
+  size(teclado.width,teclado.height + 100);
     
 }
 
@@ -206,5 +206,5 @@ void setup() {
 
   ctr = 28;
   
-  frameRate(60);
+  frameRate(6);
 }
