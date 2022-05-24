@@ -16,28 +16,28 @@ Minim minim;
 AudioPlayer musica;
 
 class TeclaPiano {
-  int n_x1;                 // canto superior esquerdo do retângulo de fronteira da tecla
-  int n_y1;
-  int n_x2;                 // Canto inferior direito  retângulo de fronteira da tecla
-  int n_y2;
+  int tf_x1;                // canto superior esquerdo do retângulo de fronteira da tecla
+  int tf_y1;
+  int tf_x2;                // Canto inferior direito  retângulo de fronteira da tecla
+  int tf_y2;
   int numNotaMIDI;          //  número de nota MIDI - usado para calcular intervaloos
   String notaNome;          // Nome da nota, exemplo C,  F#/G& 
   String arquivoSom;        // nome do arquivo a ser tocado quando a nota for tocada
   char letra;               // usado para tocar notas no teclado do computador
   
-  TeclaPiano(int x1, int y1, int x2, int y2, int note, String nome, String arquivowave, char teclaLetra) {
-        n_x1 = x1;
-        n_y1 = y1;
-        n_x2 = x2;
-        n_y2 = y2;
-        numNotaMIDI = note;
+  TeclaPiano(int x1, int y1, int x2, int y2, int nota, String nome, String arquivowave, char teclaLetra) {
+        tf_x1 = x1;
+        tf_y1 = y1;
+        tf_x2 = x2;
+        tf_y2 = y2;
+        numNotaMIDI = nota;
         notaNome = nome;
         arquivoSom = arquivowave;
         letra = teclaLetra;
   }
   
   void desenhaRetangulo() {
-   rect(n_x1, n_y1, n_x2 - n_x1, n_y2 - n_y1); 
+   rect(tf_x1, tf_y1, tf_x2 - tf_x1, tf_y2 - tf_y1); 
   }
   
   void tocaNota() {
@@ -58,7 +58,7 @@ class TeclaPiano {
     // mostra o nome da nota embaixo da nota tocada
     stroke(255);
     fill(300, 300, 5);
-    text(notaNome, n_x1, 520);
+    text(notaNome, tf_x1, 520);
     
     // mostra o intervalo
     if (notaAnt == 0) { 
@@ -76,12 +76,12 @@ class TeclaPiano {
     text(dispIntervalo, 280, 550);
   }
   
-  boolean dentro(int mx, int my) {
-    // retorna true se o ponto (mx, my) esta dentro da fronteira do retangulo deste objeto
-    if ((mx < n_x1) || (mx > n_x2)) {
+  boolean dentro(int m_x, int m_y) {
+    // retorna true se o ponto (m_x, m_y) esta dentro da fronteira do retangulo deste objeto
+    if ((m_x < tf_x1) || (m_x > tf_x2)) {
       return false;
     }
-    if ((my > n_y2) || (my < n_y1)) {
+    if ((m_y > tf_y2) || (m_y < tf_y1)) {
       return false;
     }
     return true;
@@ -208,11 +208,9 @@ void mouseReleased() {
 void settings(){
   teclado = loadImage("teclaspiano.jpeg");
   size(teclado.width,teclado.height + 100);
-    
 }
 
 void setup() {
-  
   background(0);
   image(teclado, 0, 0); 
   minim = new Minim(this);
