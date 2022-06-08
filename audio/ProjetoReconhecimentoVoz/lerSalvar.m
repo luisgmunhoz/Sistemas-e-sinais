@@ -19,7 +19,7 @@ function [] = lerSalvar()
     % prealocando
     u = cell(1,5);
     u{1,5} = [];
-
+    
     for ii = 1:5
     %%%% Leitura da vogal a
         File = "a" + ii + ".wav";
@@ -61,6 +61,9 @@ function [] = lerSalvar()
         u{:,ii} = Y;
     
     end
+    [Y,FS] = audioread("a4e.wav");
+    a{:,1} = Y;
+    disp(FS)
 save('Vogais.mat', 'a', 'e', 'i', 'o', 'u');
 disp("arquivo salvo!")
 end
