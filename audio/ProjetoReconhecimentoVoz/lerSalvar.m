@@ -63,7 +63,6 @@ function [] = lerSalvar()
     end
     [Y,FS] = audioread("a4e.wav");
     a{:,1} = Y;
-    disp(FS)
 save('Vogais.mat', 'a', 'e', 'i', 'o', 'u');
 disp("arquivo salvo!")
 end
