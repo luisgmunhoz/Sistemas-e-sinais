@@ -65,4 +65,5 @@ function [] = lerSalvar()
     a{:,1} = Y;
 save('Vogais.mat', 'a', 'e', 'i', 'o', 'u');
 disp("arquivo salvo!")
+fclose('all');
 end
