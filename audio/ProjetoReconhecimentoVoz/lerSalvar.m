@@ -22,7 +22,7 @@ function [] = lerSalvar()
     
     for ii = 1:5
     %%%% Leitura da vogal a
-        File = "a" + ii + ".wav";
+        File = "VogaisLocutor1/a" + ii + ".wav";
         
         [Y,FS] = audioread(File);
         Y = Y(:,1);
@@ -30,7 +30,7 @@ function [] = lerSalvar()
         
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal e
-        File = "e" + ii + ".wav";
+        File = "VogaisLocutor1/e" + ii + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
@@ -38,7 +38,7 @@ function [] = lerSalvar()
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal i
-        File = "i" + ii + ".wav";
+        File = "VogaisLocutor1/i" + ii + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
@@ -46,7 +46,7 @@ function [] = lerSalvar()
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal o
-        File = "o" + ii + ".wav";
+        File = "VogaisLocutor1/o" + ii + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
@@ -54,15 +54,13 @@ function [] = lerSalvar()
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal u
-        File = "u" + ii + ".wav";
+        File = "VogaisLocutor1/u" + ii + ".wav";
         
         [Y,FS] = audioread(File);
         Y = Y(:,1);
         u{:,ii} = Y;
     
     end
-    [Y,FS] = audioread("a4e.wav");
-    a{:,1} = Y;
 save('Vogais.mat', 'a', 'e', 'i', 'o', 'u');
 disp("arquivo salvo!")
 fclose('all');
