@@ -5,11 +5,11 @@ function [f] = AchaFormantes(vogal, k)
 %     Vp1 = Vp(20000:24409); % cortando o aúdio para análise com menor ruído para achar o f0
 %     f(1) = mean(pitch(Vp1,Fs));
 
-%% Formantes
+%% calculo f0
     Y0 = db(fftshift(abs(fft(vogal{:,k})))); % fft em decibéis
     Y0 = Y0((floor(length(Y0)/2)):floor(0.625*length(Y0))); % pegando de 4/8 da fft a 5/8 da fft
     frequencia = linspace(0, 5512.5, length(Y0)); % vetor de frequências
-    
+
     [Md,fp]=findpeaks(Y0,frequencia,'MinPeakDistance', 0.9 *100);
     
 
@@ -17,11 +17,11 @@ function [f] = AchaFormantes(vogal, k)
     Y0 = Y0((floor(length(Y0)/2)):floor(0.625*length(Y0)));
     frequencia = linspace(0, 5512.5, length(Y0)); 
     
-%% calculo f0
     fpa = fp(1:8);
     delta = diff(fpa);
     f(1) = mean(delta);
 
+%% cálculo Formantes
 
     % filtro de predição linear
     fs = 44100;

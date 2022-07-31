@@ -2,14 +2,12 @@
 %% Atividade T3 - Análise de Vogais
 %% Luis Guilherme de Souza Munhoz RA: 20.01937-8 Lab: 3
 %% Boas Práticas
-
 clc;                                       % limpa a tela
 clear all;                                 % limpar as variáveis
 close all;                                 % fecha as figuras abertas
-fclose('all');
+fclose('all');                             % fecha arquivos abertos
 %% Leitura das vogais e armazenamento em arquivo Vogais.mat
-
-% lerSalvar()
+lerSalvar()
 %% Cálculo das formantes e escrita em csv
 
 load("Vogais.mat");
@@ -24,7 +22,7 @@ load("Vogais.mat");
     GENERO = 1;
 
     for ii=1:5
-        FRM = AchaFormantes(u,ii)
+        FRM = AchaFormantes(a,ii)
         N = [GENERO LOCUTOR ii  FONEMA FRM(1) FRM(2) FRM(3) FRM(4)];
         dlmwrite('vogais1.csv',N,'delimiter',',','-append');
     end
