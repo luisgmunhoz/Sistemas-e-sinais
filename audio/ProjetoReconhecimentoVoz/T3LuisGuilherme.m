@@ -20,8 +20,8 @@ load("Vogais.mat");
 %%% 3 - mudar valor da variável genero caso necessário
 
     FONEMA = 1;
-    LOCUTOR = 14;
-    GENERO = 2;
+    LOCUTOR = 15;
+    GENERO = 1;
 
     for ii=1:5
         FRM = AchaFormantes(a,ii);
