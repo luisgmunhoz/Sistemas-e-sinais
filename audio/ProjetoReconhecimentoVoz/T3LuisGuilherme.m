@@ -68,7 +68,7 @@ FRM = AchaFormantes(VogaisSecretas,1);
 IdentificaVogal(FRM);
 [Y, FS] = audioread("VogaisLocutor1/TesteE.wav");
 Y = Y(:,1);
-sound(Y,FS)
+
 VogaisSecretas{1,2} = Y;
 FRM = AchaFormantes(VogaisSecretas,2);
 IdentificaVogal(FRM);
