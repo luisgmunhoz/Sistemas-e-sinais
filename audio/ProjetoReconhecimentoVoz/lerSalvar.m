@@ -1,4 +1,4 @@
-function [] = lerSalvar()
+function [] = LerSalvar(FILEDIRECTORY)
 
     % prealocando
     a = cell(1,5);
@@ -20,48 +20,48 @@ function [] = lerSalvar()
     u = cell(1,5);
     u{1,5} = [];
     
-    for ii = 1:5
+    for tentativa = 1:5
     %%%% Leitura da vogal a
-        File = "audios/18/a" + ii + ".mov";
+        File = "audios/" + FILEDIRECTORY + "/a" + tentativa + ".wav";
         
         [Y,FS] = audioread(File);
         Y = Y(:,1);
-        a{:,ii} = Y;
+        A{:,tentativa} = Y;
         
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal e
-        File = "audios/18/e" + ii + ".mov";
+        File = "audios/" + FILEDIRECTORY + "/e" + tentativa + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
-        e{:,ii} = Y;
+        E{:,tentativa} = Y;
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal i
-        File = "audios/18/i" + ii + ".mov";
+        File = "audios/" + FILEDIRECTORY + "/i" + tentativa + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
-        i{:,ii} = Y;
+        I{:,tentativa} = Y;
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal o
-        File = "audios/18/o" + ii + ".mov";
+        File = "audios/" + FILEDIRECTORY + "/o" + tentativa + ".wav";
     
         [Y,FS] = audioread(File);
         Y = Y(:,1);
-        o{:,ii} = Y;
+        O{:,tentativa} = Y;
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%% Leitura da vogal u
-        File = "audios/18/u" + ii + ".mov";
+        File = "audios/" + FILEDIRECTORY + "/u" + tentativa + ".wav";
         
         [Y,FS] = audioread(File);
         Y = Y(:,1);
-        u{:,ii} = Y;
+        U{:,tentativa} = Y;
     
     end
-save('Vogais.mat', 'a', 'e', 'i', 'o', 'u');
+save('Vogais.mat', 'A', 'E', 'I', 'O', 'U');
 disp("arquivo salvo!")
 fclose('all');
 end
