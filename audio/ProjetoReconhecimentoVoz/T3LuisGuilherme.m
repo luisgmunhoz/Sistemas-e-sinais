@@ -9,19 +9,19 @@ close all;                                 % fecha as figuras abertas
 fclose('all');
 %% Leitura das vogais e armazenamento em arquivo Vogais.mat
 
-% lerSalvar("17f")
+LerSalvar("17f")
 %% Cálculo das formantes e escrita em csv
 
-% load("Vogais.mat")
-% %%% GENERO MASCULINO-1 FEMININO-2 CRIANCA-3
-% %%% FONEMA A=1 E=2 I=3 O=4 U=5
-% %% 1 - mudar nome do diretório e dos arquivos na lerSalvar()
-% %%% 2 - mudar o valor da variável locutor a partir do último valor do vogais1.csv
-% %%% 3 - mudar valor da variável genero caso necessário
-% 
-% LOCUTOR = 14;
-% GENERO = 2;
-% iteradorVogal(GENERO, LOCUTOR)
+load("Vogais.mat")
+%%% GENERO MASCULINO-1 FEMININO-2 CRIANCA-3
+%%% FONEMA A=1 E=2 I=3 O=4 U=5
+%% 1 - mudar nome do diretório e dos arquivos na lerSalvar()
+%%% 2 - mudar o valor da variável locutor a partir do último valor do vogais1.csv
+%%% 3 - mudar valor da variável genero caso necessário
+
+LOCUTOR = 14;
+GENERO = 2;
+IteradorVogal(GENERO, LOCUTOR)
 %% Leitura e checagem de vogais
 
 VogaisSecretas = cell(1,5); % célula com uma de cada vogal que não está no banco de dados
