@@ -1,24 +1,24 @@
 function [] = LerSalvar(FILEDIRECTORY)
 
     % prealocando
-    a = cell(1,5);
-    a{1,5} = [];
+    A = cell(1,5);
+    A{1,5} = [];
     
     % prealocando
-    e = cell(1,5);
-    e{1,5} = [];
+    E = cell(1,5);
+    E{1,5} = [];
     
     % prealocando
-    i = cell(1,5);
-    i{1,5} = [];
+    I = cell(1,5);
+    I{1,5} = [];
     
     % prealocando
-    o = cell(1,5);
-    o{1,5} = [];
+    O = cell(1,5);
+    O{1,5} = [];
     
     % prealocando
-    u = cell(1,5);
-    u{1,5} = [];
+    U = cell(1,5);
+    U{1,5} = [];
     
     for tentativa = 1:5
     %%%% Leitura da vogal a
